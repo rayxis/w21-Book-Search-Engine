@@ -3,9 +3,9 @@ import queries from './queries';
 import mutations from './mutations';
 import types from './types';
 
-// Export the typeDefs
+// Exporting queries, mutations, and types for the GraphQL schema
 export default gql`
+    ${types}
     ${queries}
     ${mutations}
-    ${types}
 `;

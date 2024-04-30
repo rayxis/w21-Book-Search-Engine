@@ -2,9 +2,31 @@
 
 ## Description
 
+This book search engine is a responsibel and user-friendly application designed for book-lovers. It's powered 
+through the Google Books API, and provides users with the functionality of searching, saving and managing favorite 
+books.
+
+Users are able to use this application to search for new books and be presented with a detailed list of books 
+depending on the se/arch criterion. For each book, the user will be provided with an image of the cover along with the 
+title, the author, description, and a link to the book on Google Books.
+
+Users are able to log in to personalize their experience by saving their books and create saved lists.
+
+This application is built using the MERN stack, which utilizes MongoDB, Express.js, React.js, and Node.js. It has 
+been adapted from a RESTful API implementation to utilizing GraohQL for more efficiency and a better user experience.
+
 ## Installation
 
+To install, make sure that you have all of the necessary frameworks installed, like Node and the MongoDB 
+server.
+
+Extract your files into the directory of your choice, and execute the `npm install` command.
+
 ## Usage
+
+To use the application, execute `npm run`, and visit the specified location in your web browser.
+
+A live demonstration can be viewed here: https://w21-book-search-engine.onrender.com/
 
 ## User Story
 ```text

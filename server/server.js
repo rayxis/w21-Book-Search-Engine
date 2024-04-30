@@ -1,11 +1,11 @@
 // Import required modules
-const { ApolloServer }   = require('apollo-server-express');
-const express            = require('express');
-const path               = require('path');
-const db                 = require('./config/connection');
-const typeDefs           = require('./graphql/schema');     // GraphQL schemas
-const resolvers          = require('./graphql/resolvers');  // GraphQL resolvers, both Query and Mutation
-const { authMiddleware } = require('./utils/auth');         // Authentication middleware
+const { ApolloServer } = require('apollo-server-express');
+const express = require('express');
+const path = require('path');
+const db = require('./config/connection');
+const typeDefs = require('./graphql/schema'); // GraphQL schemas
+const resolvers = require('./graphql/resolvers'); // GraphQL resolvers, both Query and Mutation
+const { authMiddleware } = require('./utils/auth'); // Authentication middleware
 
 // Setup express app
 const app  = express();
@@ -30,13 +30,21 @@ const server = new ApolloServer({
 	                                context: authMiddleware
                                 });
 
-// Apply the Apollo GraphQL middleware and set the path to /graphql
-server.applyMiddleware({ app, path: '/graphql' });
+async function startApolloServer() {
+	// Wait for the server to start
+	await server.start();
 
-// Listen for connections on the specified port, once the database is open
-db.once('open', () => {
-	app.listen(PORT, () => {
-		// Log where the server is listening
-		console.log(`🌍 Now listening on localhost:${PORT}${server.graphqlPath}`);
+	// Apply the Apollo GraphQL middleware and set the path to /graphql
+	server.applyMiddleware({ app, path: '/graphql' });
+
+	// Listen for connections on the specified port, once the database is open
+	db.once('open', () => {
+		app.listen(PORT, () => {
+			// Log where the server is listening
+			console.log(`🌍 Now listening on localhost:${PORT}${server.graphqlPath}`);
+		});
 	});
-});
+}
+
+// Start the server
+startApolloServer();

@@ -1,5 +1,5 @@
 // GraphQL schema for the Query type.
-export default `
+module.exports = `
 	type Query {
         getSingleUser(id: ID, username: String): User
     }

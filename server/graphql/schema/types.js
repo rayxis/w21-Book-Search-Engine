@@ -1,5 +1,5 @@
 // Defines GraphQL types for User, Book, and Auth
-export default `
+module.exports = `
 	type Auth {
 	    token:  ID!
 	    user:   User

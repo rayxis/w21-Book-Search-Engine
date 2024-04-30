@@ -14,10 +14,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^5.1.0"
+    "concurrently": "^5.1.0",
+    "eslint-plugin-graphql": "^4.0.0",
+    "eslint-plugin-react": "^7.34.1"
   },
   "dependencies": {
-    "apollo-server-express": "^3.13.0",
-    "graphql": "^16.8.1"
+    "apollo-server-express": "^3.13.0"
   }
 }
